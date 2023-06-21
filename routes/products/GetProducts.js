@@ -7,7 +7,7 @@ export const GetProducts = async (req, res) => {
     res.send(result)
 
   } catch (err) {
-    
+
     throw err;
   }
 };

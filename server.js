@@ -25,6 +25,7 @@ const upload = multer({ storage: storage });
 
 dotenv.config();
 
+app.use("/images", express.static("images"))
 app.use(cors());
 app.use(express.json());
 

@@ -3,17 +3,13 @@ import { ProductSchema } from "../schema/Product.js";
 export const PostProducts = async (req, res) => {
   try {
     const newProd = await ProductSchema({
-      path:
-        "file:///C:/Users/DAVIT/Desktop/kheta-back/images/" +
+      image:
+        '/images/' +
         req.files[0].filename,
+      id: Math.floor(Math.random() * 1000000),
       ...req.body,
     }).save()
-    res.send({
-      path:
-        "file:///C:/Users/DAVIT/Desktop/kheta-back/images/" +
-        req.files[0].filename,
-      ...req.body,
-    });
+    res.send("success!")
   } catch (err) {
     throw err;
   }
