@@ -4,6 +4,7 @@ import { LogInRoute } from "./routes/log.reg/Login.js";
 import { RegisterRoute } from "./routes/log.reg/Register.js";
 import dotenv from "dotenv";
 import multer from "multer";
+import cors from "cors";
 import { mongoose } from "mongoose";
 import { PostProducts } from "./routes/products/PostProducts.js";
 
@@ -23,12 +24,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 dotenv.config();
+
+app.use(cors());
 app.use(express.json());
 
 app.get("/products/getall", GetProducts);
 app.post("/auth/login", LogInRoute);
 app.post("/auth/register", RegisterRoute);
-app.post("/products/postall", upload.any('image'), PostProducts);
+app.post("/products/postall", upload.any("image"), PostProducts);
 
 async function connectToDb() {
   try {
