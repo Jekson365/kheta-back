@@ -4,7 +4,7 @@ import { LogInRoute } from "./routes/log.reg/Login.js";
 import { RegisterRoute } from "./routes/log.reg/Register.js";
 import dotenv from "dotenv";
 import multer from "multer";
-import cors from "cors";
+import cors from 'cors'
 import { mongoose } from "mongoose";
 import { PostProducts } from "./routes/products/PostProducts.js";
 
