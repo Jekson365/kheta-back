@@ -7,8 +7,10 @@ import multer from "multer";
 import cors from 'cors'
 import { mongoose } from "mongoose";
 import { PostProducts } from "./routes/products/PostProducts.js";
+import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 
 const app = express();
+const router = express.Router()
 
 // configure storage
 const storage = multer.diskStorage({
@@ -31,8 +33,13 @@ app.use(express.json());
 
 app.get("/products/getall", GetProducts);
 app.post("/auth/login", LogInRoute);
+app.delete("/products/delete/:id", DeleteProducts)
 app.post("/auth/register", RegisterRoute);
-app.post("/products/postall", upload.any("image"), PostProducts);
+app.post("/products/postall", upload.single("image"), PostProducts);
+
+
+
+app.use("/.netlify/functions/api", router)
 
 async function connectToDb() {
   try {
