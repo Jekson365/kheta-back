@@ -2,6 +2,7 @@ import express from "express";
 import { GetProducts } from "./routes/products/GetProducts.js";
 import { LogInRoute } from "./routes/log.reg/Login.js";
 import { RegisterRoute } from "./routes/log.reg/Register.js";
+import jwt from 'jsonwebtoken'
 import dotenv from "dotenv";
 import multer from "multer";
 import cors from 'cors'
@@ -11,6 +12,8 @@ import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 
 const app = express();
 const router = express.Router()
+
+export const SECRET_KEY = 'helloworld'
 
 // configure storage
 const storage = multer.diskStorage({
@@ -36,7 +39,8 @@ app.post("/auth/login", LogInRoute);
 app.delete("/products/delete/:id", DeleteProducts)
 app.post("/auth/register", RegisterRoute);
 app.post("/products/postall", upload.single("image"), PostProducts);
-
+app.post("/login", LogInRoute)
+app.post('/register', RegisterRoute)
 
 
 app.use("/.netlify/functions/api", router)
