@@ -43,7 +43,6 @@ app.post("/login", LogInRoute)
 app.post('/register', RegisterRoute)
 
 
-app.use("/.netlify/functions/api", router)
 
 async function connectToDb() {
   try {
