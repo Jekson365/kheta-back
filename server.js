@@ -13,7 +13,7 @@ import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 const app = express();
 const router = express.Router()
 
-export const SECRET_KEY = 'helloworld'
+export const SECRET_KEY = process.env.KEY
 
 // configure storage
 const storage = multer.diskStorage({
