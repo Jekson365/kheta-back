@@ -13,7 +13,7 @@ import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 const app = express();
 const router = express.Router()
 
-export const SECRET_KEY = process.env.KEY
+export const SECRET_KEY = 'hello world'
 
 // configure storage
 const storage = multer.diskStorage({
@@ -52,7 +52,7 @@ async function connectToDb() {
     throw err;
   }
 }
-
+// 
 app.listen(8080, () => {
   try {
     mongoose.connect(process.env.MONGO);
