@@ -13,9 +13,10 @@ import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 const app = express();
 const router = express.Router()
 
-export const SECRET_KEY = 'dkansjeuqwhe89y12y3471y23yu1h2u1shuhasudy98y12793y1'
+export const SECRET_KEY = process.env.KEY
 
 // configure storage
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
