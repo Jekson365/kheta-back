@@ -56,7 +56,6 @@ async function connectToDb() {
 // 
 app.listen(8080, () => {
   try {
-    mongoose.connect(process.env.MONGO);
     connectToDb();
   } catch (err) {
     throw err;
