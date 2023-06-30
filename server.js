@@ -13,7 +13,7 @@ import { DeleteProducts } from "./routes/products/Deleteproduct.js";
 const app = express();
 const router = express.Router()
 
-export const SECRET_KEY = 'hello world'
+export const SECRET_KEY = 'dkansjeuqwhe89y12y3471y23yu1h2u1shuhasudy98y12793y1'
 
 // configure storage
 const storage = multer.diskStorage({
@@ -37,7 +37,7 @@ app.use(express.json());
 app.get("/products/getall", GetProducts);
 app.post("/auth/login", LogInRoute);
 app.delete("/products/delete/:id", DeleteProducts)
-app.post("/auth/register", RegisterRoute);
+// app.post("/auth/register", RegisterRoute);
 app.post("/products/postall", upload.single("image"), PostProducts);
 app.post("/login", LogInRoute)
 app.post('/register', RegisterRoute)
